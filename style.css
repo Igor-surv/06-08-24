@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box; /*faz que o navegador não calcule dimensões a mais dos elementos*/
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.container p{
+    text-align: center;
+    font-size: 20px;
+    padding: 3px;
+
+}
+
+.container input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    background-color: #4247dd;
+    color: #fff;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #6b9df8;
+    color: #fff;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    font-size: 17px;
+    color: #322b7f;
+}

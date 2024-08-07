@@ -1,0 +1,31 @@
+.menu {
+    margin: 10px;
+    width: 200px;
+    background-color: #f5f5f5b0;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+  }
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu ul li {
+    margin-bottom: 8px;
+  }
+  
+  .menu ul li a {
+    display: block;
+    padding: 7px 9px;
+    background-color: #ececec;
+    color: #000;
+    text-decoration: none;
+    border-radius: 1px 5px 4px 2px;
+  }
+  
+  .menu ul li a:hover {
+    background-color: #eee;
+  }

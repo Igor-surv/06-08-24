@@ -1,0 +1,35 @@
+<!-- HTML Code -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adicionar novo cliente</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="addCliente.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Adicionar novo cliente:</h1>
+    <form method="post" action="addCliente.php">
+
+      <label for="nome">Nome do cliente:</label>
+      <input type="text" id="nome" name="nome" required>
+        <br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+        <br><br>
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required>
+        <br><br>
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" required>
+        <br><br>
+      <label for="cpf">CPF:</label>
+      <input type="number" id="cpf" name="cpf" required>
+        <br><br>
+
+      <input type="submit" id="submit" value="Adicionar clientes">
+    </form>
+  </div>
+</body>
+</html>

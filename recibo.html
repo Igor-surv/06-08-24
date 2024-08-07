@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="recibo.css">
+    <title>Recibos</title>
+</head>
+<body>
+    <form action="recibo.php" method="post">
+
+        <div class="dados">
+            Nome Emitente: <br>
+            <input type="text" name="emitente" id="emitente" required />
+            
+            <br><br>
+
+            Pedido nº:
+            <input type="number" name="pedido" id="pedido" required />
+            <br><br>
+
+            Codigo dos itens:
+            <input type="text" id="codigo" name="codigo" pattern="[0-9/]" placeholder="Separe os itens com /" required />
+            <br><br>
+
+            Recebemos de: <br>
+            <input type="text" id="nome" name="nome" required /> <br><br>
+
+            Valor R$: <br>
+            <input type="number" step="0.01" name="valor" id="valor" required /> <br><br>
+
+            <button onClick="gerarRecibo()">Gerar Recibo</button>
+        </div>
+
+        <div class="print">
+            <h1>Recibo - <span id="recibo_emitente"></span></h1>
+            <p>Número do pedido: <span id="recibo_pedido"></span></p>
+            <p>Código dos produtos: <span id="recibo_codigo"></span> </p>
+            <p>Recebemos de: <span id="recibo_nome"></span></p>
+            <p>Valor: R$ <span id="recibo_valor">0,00</span></p>
+            <p>Data: <span id="recibo_data"></span></p>
+            <br>
+
+            <div class="assinatura">
+                <p>Esse é um recibo de comprovante fiscal. É obrigatório o próprio para qualquer
+                    reclamação, reembolso, ou algum ato de defeito sobre o produto. <br>
+                </p>
+                <h6>__________________________________________</h6> 
+                <p>Assinatura do cliente</p>
+                <h6>__________________________________________</h6>
+                    <p>Assinatura do vendedor</p>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function gerarRecibo(){
+            const emitente = document.getElementById('emitente').value;
+            const pedido = document.getElementById('pedido').value;
+            const codigo = document.getElementById('codigo').value;
+            const nome = document.getElementById('nome').value;
+            const valor = parseFloat(document.getElementById('valor').value);
+
+            document.getElementById('recibo_emitente').textContent = emitente;
+            document.getElementById('recibo_pedido').textContent = pedido;
+            document.getElementById('recibo_codigo').textContent = codigo;
+            document.getElementById('recibo_nome').textContent = nome;
+            document.getElementById('recibo_valor').textContent = valor.toLocaleString('pt-br', { minimumFractionDigits: 2 });
+            document.getElementById('recibo_data').textContent = new Date().toLocaleDateString('pt-br');
+
+            window.print();
+        }
+
+        const botao = document.querySelector('button');
+        const campos = document.querySelectorAll('input');
+
+        botao.disabled = true;
+
+        campos.forEach((campo) => {
+            campo.addEventListener('input', verificarCampos);
+        });
+
+        function verificarCampos() {
+            let todosPreenchidos = true;
+
+            campos.forEach((campo) => {
+                if (campo.value.trim() === '') {
+                todosPreenchidos = false;
+            }
+        });
+
+        if (todosPreenchidos) {
+            botao.disabled = false;
+        } else {
+            botao.disabled = true;
+        }
+        }
+    </script>
+</body>
+</html>
